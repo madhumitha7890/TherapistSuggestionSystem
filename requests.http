@@ -1,0 +1,40 @@
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email":"test@gmail.com"
+  "password": "password123"
+}
+
+### Login an existing user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "password123"
+}
+
+### Fetch user details (requires authentication)
+GET http://localhost:5000/api/auth/me
+Authorization: Bearer ${token}
+
+### Add a Therapist
+POST http://localhost:5000/api/therapists/add
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Dr. Alice Smith",
+  "specializations": ["anxiety", "depression"],
+  "gender": "Female",
+  "languages": ["English", "Spanish"],
+  "therapyTypes": ["Cognitive", "Psychodynamic"],
+  "availability": {
+    "days": ["Monday", "Wednesday", "Friday"],
+    "times": ["Morning", "Afternoon"]
+  },
+  "image": "https://tse2.mm.bing.net/th?id=OIP.9eHuVx4k5mLo2gXexGkOxgHaLK&pid=Api&P=0&h=180"
+}
